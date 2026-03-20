@@ -1,0 +1,76 @@
+camera:
+  id: 0
+  width: 1280
+  height: 720
+  fps: 30
+  
+detection:
+  model_path: "models/yolov8n.onnx"
+  confidence_threshold: 0.5
+  nms_threshold: 0.45
+  min_confidence_for_tracking: 0.6
+  
+motion:
+  enabled: true
+  var_threshold: 25
+  min_contour_area: 800
+  learning_rate: 0.001
+  motion_percentage_threshold: 0.4
+  
+tracking:
+  iou_threshold: 0.3
+  max_age_frames: 30
+  min_hits: 3
+  max_tracks: 50
+  use_kalman: true
+  
+threat:
+  loiter_threshold_seconds: 15.0
+  suspicious_duration_seconds: 45.0
+  confidence_weight: 0.3
+  
+  time_multipliers:
+    night: 1.4
+    early_morning: 0.9
+    day: 0.7
+    evening: 1.0
+  
+  class_base_scores:
+    person: 35
+    car: 22
+    truck: 22
+    motorcycle: 28
+    backpack: 18
+    handbag: 12
+    dog: 8
+  
+zones:
+  - name: "Front Door"
+    polygon: [[200, 300], [600, 300], [600, 650], [200, 650]]
+    alert_classes: ["person", "backpack", "handbag"]
+    sensitivity: 1.3
+    priority: 1
+    
+  - name: "Driveway"
+    polygon: [[650, 200], [1200, 200], [1200, 700], [650, 700]]
+    alert_classes: ["person", "car", "truck", "motorcycle"]
+    sensitivity: 1.0
+    priority: 2
+
+recording:
+  enabled: true
+  output_dir: "recordings"
+  save_on_alert: true
+  alert_level_threshold: "MEDIUM"
+  clip_duration_seconds: 10
+  
+logging:
+  level: "INFO"
+  file: "security.log"
+  max_bytes: 10485760
+  backup_count: 5
+  
+performance:
+  skip_frames: 0
+  max_fps: 30
+  enable_profiling: false

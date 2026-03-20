@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+env/
+
+# Model files (too large for GitHub)
+models/*.onnx
+models/*.pt
+
+# Recordings (too many files)
+recordings/
+
+# Logs
+*.log
+events.jsonl
+activity_profile.json
+
+# OS
+.DS_Store
+Thumbs.db

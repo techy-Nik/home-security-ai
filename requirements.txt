@@ -1,0 +1,11 @@
+# Core ML and inference
+onnxruntime>=1.16.0          # Fast inference engine (use onnxruntime-gpu if you have NVIDIA GPU)
+numpy>=1.24.0                # Numerical operations
+ultralytics>=8.0.0           # For YOLOv8 model export (first run only)
+
+# Computer vision
+opencv-python>=4.8.0         # Camera I/O and display only (not used for detection)
+
+# Optional but recommended for Raspberry Pi deployment
+# onnxruntime-arm64          # For Raspberry Pi 64-bit
+# tflite-runtime             # Alternative: TensorFlow Lite for Pi
